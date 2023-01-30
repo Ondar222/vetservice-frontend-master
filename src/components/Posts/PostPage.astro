@@ -1,0 +1,118 @@
+---
+import Carousel from "../Carousel/Carousel.astro";
+
+const params = Astro.props;
+---
+
+<div class="">
+  <div class="">{params.title}</div>
+
+  {
+    //тернарный оператор если в новости одно изображение, то показывается изображение, а не слайдер
+    params.images.length < 1 ? (
+      <div class="">
+        <img
+          alt="some"
+          src={`${import.meta.env.PUBLIC_URL}` + params.preview_image.url}
+          class="object-cover"
+        />
+      </div>
+    ) : (
+      <section>
+        <div
+          id="indicators-carousel"
+          class=""
+          data-carousel="static"
+        >
+          <div class="">
+            {params.images.map((item) => {
+              return (
+                <div
+                  class=""
+                  data-carousel-item="active"
+                >
+                  <img
+                    src={import.meta.env.PUBLIC_URL + item.url}
+                    class=""
+                    alt="..."
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div class="">
+            {params.images.map((item) => {
+              return (
+                <button
+                  type="button"
+                  class="w-3 h-3 rounded-full"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                  data-carousel-slide-to="0"
+                />
+              );
+            })}
+          </div>
+          <button
+            type="button"
+            class=""
+            data-carousel-prev
+          >
+            <span class="">
+              <svg
+                aria-hidden="true"
+                class=""
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+              <span class="">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class=""
+            data-carousel-next
+          >
+            <span class="">
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+      </section>
+    )
+  }
+  <div class="" set:html={params.body} />
+
+  <div>
+    <button class="button dark:bg-gray-500">Назад к новостям</button>
+  </div>
+</div>
+
+
+<style>
+
+</style>
