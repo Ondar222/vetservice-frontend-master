@@ -17,7 +17,7 @@ const res = await fetch(
   <MainPageLayout>
     <div class="zzz">
       <div set:html={res?.page?.content} />
-      <div class="">
+      <div class="maps">
         <h1>Администрация Чаа-Хольского кожууна</h1>
         <iframe class="contact_map"
         src="https://yandex.ru/map-widget/v1/?um=constructor%3A218677cbf42fad5f1b7f9a69a1caa94ee8f375e92785883de323906634d8ccaa&amp;source=constructor" 
@@ -36,8 +36,12 @@ const res = await fetch(
   margin-bottom: 0.75em;
 }
 .zzz {
-  margin-left: -20px;
+  margin-top: 10px;
 }
 .paragraph_type{
+}
+.maps{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>

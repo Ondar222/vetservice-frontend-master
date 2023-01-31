@@ -7,7 +7,7 @@ import DocumentLink from "../../components/Document/DocumentLink";
 const res = await fetch(
   `${
     import.meta.env.PUBLIC_URL
-  }/api/about-page?populate[0]=page.documents&populate[1]=slider.image&populate[2]=pinned_links.image`
+  }/api/deyatelnost-page?populate[0]=page.documents&populate[1]=slider.image&populate[2]=pinned_links.image`
 )
   .then((res) => res.json())
   .then((res) => res.data);

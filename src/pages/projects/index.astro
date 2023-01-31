@@ -19,9 +19,9 @@ const projects = await fetch(
   <ActivityPageLayout>
     {
       projects.length >= 1 ? (
-        projects.map((item) => {
+        projects?.map((item) => {
           return (
-            <a href={`/projects/project-`+item.id}>{item.page.title}</a>
+            <a href={`/projects/project-`+item.id}>{item?.page?.title}</a>
             // <ProjectCard
             //   key={item.id}
             //   id={item.id}

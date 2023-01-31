@@ -18,7 +18,7 @@ const HeaderSearchField = observer(() => {
           onClick={(e) => {
             searchQuery.fetchPosts(searchQuery.query);
           }}
-          className="w-5 h-5 z-10 text-black"
+          className="icon_search"
         />
       </a>
     </div>

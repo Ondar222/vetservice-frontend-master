@@ -20,7 +20,7 @@ const res = await fetch(
       <div class="">
         <div class="break-keep" set:html={res?.page?.content} />
         {
-          res?.page?.documents.map((item) => (
+          res?.page?.documents?.map((item) => (
             <DocumentLink
               client:load
               filename={item?.file?.name}

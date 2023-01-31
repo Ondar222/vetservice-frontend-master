@@ -6,38 +6,38 @@ const PostCard = (params) => {
   } else {
     return (
       <div
-        className="flex xs:flex-col md:flex-row border-2 rounded-r"
+        className="post_class"
         key={params.id}
       >
-        <div className="block sm:min-w-[calc(200px)] md:min-w-[calc(350px)]">
+        <div className="">
           <img
             alt="some"
             src={params.preview_image}
             width="300px"
-            height="200px"
+            height="250px"
             className="dark:grayscale"
           />
         </div>
 
-        <div className="flex flex-col justify-between gap-3 p-3">
-          <div className="text-xl">
-            <h1>{params.title}</h1>
+        <div className="params_title">
+          <div className="">
+            <h1 className="params_heading">{params.title}</h1>
           </div>
           <div>
             <p className="text-md">{params.news_preview}</p>
           </div>
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex xs:flex-col md:flex-row items-center gap-2">
-              <p className="font-bold">Дата публикации:</p>
+          <div className="post_center">         
+              <p className="post_paragraph">Дата публикации:</p>
               {/* {unixTimeConverter(params.createdAt)} */}
-            </div>
-
+             <div className="btn_read">
             <a href={`/news/post-${params.id}`} className="button dark:bg-gray-500">
               Читать
             </a>
+             </div>
+            </div>
           </div>
         </div>
-      </div>
+     
     );
   }
 };

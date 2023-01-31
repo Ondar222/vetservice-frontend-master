@@ -6,10 +6,9 @@ const params = Astro.props;
 
 <div class="">
   <div class="">{params.title}</div>
-
   {
     //тернарный оператор если в новости одно изображение, то показывается изображение, а не слайдер
-    params.images.length < 1 ? (
+    params?.images?.length < 1 ? (
       <div class="">
         <img
           alt="some"
@@ -25,7 +24,7 @@ const params = Astro.props;
           data-carousel="static"
         >
           <div class="">
-            {params.images.map((item) => {
+            {params?.images?.map((item) => {
               return (
                 <div
                   class=""
@@ -33,7 +32,7 @@ const params = Astro.props;
                 >
                   <img
                     src={import.meta.env.PUBLIC_URL + item.url}
-                    class=""
+                    class="img_post"
                     alt="..."
                   />
                 </div>
@@ -41,7 +40,7 @@ const params = Astro.props;
             })}
           </div>
           <div class="">
-            {params.images.map((item) => {
+            {params?.images?.map((item) => {
               return (
                 <button
                   type="button"
@@ -53,54 +52,7 @@ const params = Astro.props;
               );
             })}
           </div>
-          <button
-            type="button"
-            class=""
-            data-carousel-prev
-          >
-            <span class="">
-              <svg
-                aria-hidden="true"
-                class=""
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              <span class="">Previous</span>
-            </span>
-          </button>
-          <button
-            type="button"
-            class=""
-            data-carousel-next
-          >
-            <span class="">
-              <svg
-                aria-hidden="true"
-                class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-              <span class="sr-only">Next</span>
-            </span>
-          </button>
+        
         </div>
       </section>
     )
@@ -114,5 +66,13 @@ const params = Astro.props;
 
 
 <style>
+.img_post{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 50%;  
+  margin-top: 10px;
+}
+
 
 </style>
